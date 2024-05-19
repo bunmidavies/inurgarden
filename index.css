@@ -1,7 +1,9 @@
 body 
 {
-	background-color:black;
+	background-color:white;
 	color:white;
 	font-family:Arial;
+	background-image: url('media/index/clouds_2.gif');
+	background-size: cover;
 }
 
