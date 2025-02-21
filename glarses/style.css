@@ -1,0 +1,58 @@
+@font-face {
+  font-family: 'Outfit';
+  src: url('fonts/Outfit-VariableFont_wght.ttf'); /* IE9 Compat Modes */
+}
+
+body {
+    font-family: Outfit;
+    padding-top: 1vh;
+}
+
+.title {
+    text-align: center;
+}
+
+.row {
+    width: 90%;
+    margin:auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    div {
+        flex-grow: 1;
+        text-align: center;
+        max-width: 200px;
+        display: block;
+    }
+
+    .container {
+        display: flex;
+        flex-grow: 1;
+        text-align: center;
+        max-width: 200px;
+        display: block;
+    }
+    img {
+        width: 200px;
+    }
+}
+
+hr {
+    border-top: solid 1px rgb(241, 241, 241);
+}
+
+.column {
+    margin:auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    .container {
+        display: flex;
+        align-items: center;
+        height: 200px;
+    }
+    img {
+        width: 200px;
+    }
+}
