@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="page">
+        <div id="day"><h1>Saturday, 15th March 2025</h1></div>
+        </div>
+        <script>
+        document.getElementsByTagName("body")[0].style.display = "none";
+        images = ['20230717011625_000299.JPG', '20230717011630_000300.JPG', '20230717011757_000301.JPG', '20230717011818_000302.JPG', '20230717012001_000303.JPG', '20230717012348_000304.JPG', '20230717012449_000305.JPG', '20230717012818_000306.JPG', '20230717012855_000307.JPG', '20230717012953_000308.JPG', '20230717013157_000309.JPG', '20230717013320_000310.JPG', '20230717013733_000311.JPG', '20230717013746_000312.JPG', '20230717014009_000313.JPG', '20230717023544_000314.JPG', '20230717023548_000315.JPG', '20230717025057_000316.JPG', '20230717025359_000317.JPG', '20230717031706_000318.JPG', '20230717031900_000319.JPG', '20230717031910_000320.JPG', '20230717032100_000321.JPG', '20230717033917_000322.JPG', '20230717034021_000323.JPG', '20230717034049_000324.JPG', '20230717034129_000325.JPG', '20230717035209_000326.JPG', '20230717035222_000328.JPG', '20230717035558_000329.JPG', '20230717044530_000330.JPG', '20230717044715_000331.JPG']
+        let maxZ = 99999;
+        let w = screen.width;
+        let h = screen.height;
+
+        images.forEach(i => {
+            t = document.createElement("img");
+            t.id = i;
+            t.className = "draggable";
+            t.style.display = "none";
+            t.setAttribute('src', "images/" + i);
+            t.setAttribute('height', (h / 5) + "px");
+            t.style.top = (Math.random() * (h * 6/10) + h/15) + "px"
+            t.style.left = (Math.random() * (w * 7/10) + w/15) + "px"
+            document.body.appendChild(t);
+            dragElement(t);
+        });
+        document.getElementsByTagName("body")[0].style.display = "block";
+       
+        i = 0
+        x = setInterval(() => {if (i < images.length) { console.log("..."); console.log(document.getElementById(images[i])); document.getElementById(images[i]).style.display = "block"; console.log(document.getElementById(images[i])); i+=1; }}, 50 );
+        setTimeout(() => clearInterval(x), 10000);
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    // if present, the header is where you move the DIV from:
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    // otherwise, move the DIV from anywhere inside the DIV:
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.getElementById(elmnt.id).style.zIndex = maxZ; 
+    maxZ += 1;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    // stop moving when mouse button is released:
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+} 
+        </script>
+    </body>
+</html>
