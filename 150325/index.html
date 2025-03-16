@@ -6,6 +6,7 @@
     <body>
         <div class="page">
         <div id="day"><h1>Saturday, 15th March 2025</h1></div>
+        <div id="loading">*</div>
         </div>
         <script>
         document.getElementsByTagName("body")[0].style.display = "none";
@@ -28,9 +29,14 @@
         });
         document.getElementsByTagName("body")[0].style.display = "block";
        
+        g = setInterval(() => {document.getElementById("loading").textContent += "*"}, 150)
+        addEventListener("load", (event) => {
+        document.getElementById("loading").style.display = "none";
+        clearInterval(g);
         i = 0
         x = setInterval(() => {if (i < images.length) { console.log("..."); console.log(document.getElementById(images[i])); document.getElementById(images[i]).style.display = "block"; console.log(document.getElementById(images[i])); i+=1; }}, 50 );
         setTimeout(() => clearInterval(x), 10000);
+        });
 
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
