@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bucharest 02/03-25</title>
+        <link rel="stylesheet" href="style.css">
+        <script>
+            let curPage = 1;
+            document.addEventListener("load", () => document.getElementById('page'+curPage).classList.add('fadeIn'));
+            let anim1; 
+            let anim2;
+
+            const show = (page) => {
+                if (curPage === page) { return; }
+                //pages.forEach(p => document.getElementById("page" + p).style.display = "none");
+
+                anim1 = document.getElementById("page"+curPage).animate(
+                    [
+                        {opacity: 1},
+                        {offset: 0.95, opacity: 0, display: 'none'},
+                        {opacity: 0, display: 'none'},
+                    ], {
+                        duration: 490,
+                        iterations: 1,
+                        composite:"replace"
+                    }
+                    );
+                anim1.persist();
+                prevPage = JSON.parse(JSON.stringify(curPage))
+                hidePrev = () => document.getElementById("page"+prevPage).style.display = "none";
+                setTimeout(() => hidePrev(), 480);
+                setTimeout(() => {
+                anim2 = document.getElementById("page"+curPage).animate(
+                    [
+                        {opacity: 0, display: 'block'},
+                        {offset: 0.95, opacity: 1, display: 'block'},
+                        {opacity: 1, display: 'block'},
+                    ], {
+                        duration: 520,
+                        iterations: 1,
+                        composite:"replace"
+                    },
+                    );
+                anim2.persist();
+                // document.getElementById("page"+curPage).style.display = "block";
+                // document.getElementById('page'+curPage).style.display = "block";
+                newPage = JSON.parse(JSON.stringify(curPage))
+                showCur = () => document.getElementById("page"+newPage).style.display = "block";
+                setTimeout(showCur, 500);
+
+                }, 500);
+                curPage = page;
+                // document.getElementById('page'+curPage).classList.add('fadeOut');
+                const elem = document.getElementById("page" + page);
+                //elem.style.display = "block";
+            }
+        </script>
+    </head>
+    <body>
+        <div class="page">
+            <div class="header">
+                <div class="titleFlex">
+                    <h1 id="title">
+                        Bucureşti<br>
+                        <span style="font-size:3rem;font-style:italic">/ Bucharest</span>
+                    </h1>
+                    <div id="buttons" style="display:flex;justify-content: flex-end;">
+                    <span style="cursor:pointer" onclick="show(1)">1</span>
+                    <span style="cursor:pointer" onclick="show(2)">2</span>
+                    <span style="cursor:pointer" onclick="show(3)">3</span>
+                    </div>
+            </div>
+                <div>
+                <img src="images/R1-00283-010A.JPG">
+                </div>
+                <div id="details">
+                    <h4>
+                        <table id="details">
+                            <thead>
+                                <th>Detail</th>
+                                <th>Value</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Lat,  Long 
+                                    </td>
+                                    <td>
+                                        44.4268° N,<br/> 26.1025° E
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        From, To
+                                    </td>
+                                    <td>
+                                        01.03.25 02:00 ~<br /> 02.03.25 19:00
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </h4>
+                </div>
+                <div>
+                <img src="images/R1-00283-019A.JPG">
+                </div>
+            </div>
+            <div class="container" id="page1">
+                <div class="mainbar" style="width:100%">
+                    <div class="col">
+                        <div>
+                            <img src="images/R1-00283-014A.JPG">
+                        </div>
+
+                        <div>
+                            <img src="images/20230702153943_000127.JPG">
+                        </div>
+
+                    </div>
+                    <div class="col">
+                        <div>
+                            <img src="images/R1-00283-006A.JPG">
+                        </div>
+                        
+                        <div style="border: solid 1px black; background-color: black; color: white;">
+                            Enough snow to leave buildups pushed to corners of each road had been left over when we arrived,
+                            and these hadn't cleared by the time we were leaving <br/><br />
+                            I hadn't believed the sun would shine by sunday, and it hadnt until some point past noon <br/>
+                        </div>
+
+                        <div>
+                            <img src="images/R1-00283-013A.JPG">
+                        </div>
+
+                    </div>
+                    <div class="colOther">
+                        <div class="colContainer">
+                        <div id="university">
+                            <div style="background-color: white;">
+                            we visited Sabrina's university
+                            </div>
+                        </div>
+                        <div style="">
+                        <video controls>
+  <source src="videos/20230703021412_000136.MP4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+                        </div>
+                        <div>
+                            <img src="images/R1-00285-0007.JPG">
+                        </div>
+                        </div>
+                        <div>
+                    It was my first time visiting Romania
+                    <br><br><br><br><br><br><br><br>
+                    Before I had only ever visited Ukraine as a child
+                    <br><br><br><br><br><br><br><br>
+                    I hadn't travelled so far by plane since
+                        </div>
+
+                    <!-- <div id="" style="width:50%">
+                    It was my first time visiting Romania
+                    <br><br><br><br><br><br><br><br>
+                    Before I had only ever visited Ukraine as a child
+                    <br><br><br><br><br><br><br><br>
+                    I hadn't travelled so far by plane since
+                    </div> -->
+                    </div>
+                </div>
+                <!-- <div class="sidebar" style="width:25%">
+                    <div id="abouttrip">
+                    It was my first time visiting Romania
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    Before I had only ever visited Ukraine as a child
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    I hadn't travelled so far by plane since
+                    </div>
+                </div> -->
+            </div>
+
+        <div class="container" id="page2" style="display: none; ">
+                    <div class="row">
+                        <div>
+                            <img src="images/R1-00285-0009.JPG">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div>
+                            <img src="images/R1-00283-032A.JPG">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div>
+                            <img src="images/R1-00283-034A.JPG">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div>
+                            <img src="images/R1-00285-0013.JPG">
+                        </div>
+                    </div>
+
+
+                    <!-- <div id="" style="width:50%">
+                    It was my first time visiting Romania
+                    <br><br><br><br><br><br><br><br>
+                    Before I had only ever visited Ukraine as a child
+                    <br><br><br><br><br><br><br><br>
+                    I hadn't travelled so far by plane since
+                    </div> -->
+                </div>
+                <!-- <div class="sidebar" style="width:25%">
+                    <div id="abouttrip">
+                    It was my first time visiting Romania
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    Before I had only ever visited Ukraine as a child
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    I hadn't travelled so far by plane since
+                    </div>
+                </div> -->
+        
+            <div class="container" id="page3" style="display: none">
+                <div class="mainbar" >
+                    <div class="col" style="max-width:60%">
+                        <div>
+                            <img src="images/R1-00283-026A.JPG">
+                        </div>
+                        <div>
+                            <img src="images/R1-00283-017A.JPG">
+                        </div>
+                        <div>
+                            <img src="images/R1-00283-025A.JPG">
+                        </div>
+                        <div>
+                            <img src="images/R1-00283-030A.JPG">
+                        </div>
+                        <div style="display:flex; background-color:white; padding: 0.5vw">
+                            A man working at the park who had helped find and unfold chairs for us asked me where I had came from, and I had told him I was from London and had been visiting for the weekend. 
+                            He smiled and recalled when he worked in the UK for a couple of years, first in a Pret in Paddington and later on in Exeter doing something I didn't catch (maybe he had worked in Exeter first and London later, I don't remember the order of events).
+                            I think he had recognised that Victor was from Moldova without him having to say so, since Moldovans speaking Romanian is distinguishable - something they get from speaking Russian as well from what I understand. I drank some kind of caffeinated energy-tea amalgamation
+                            that I don't think I enjoyed enough to want another, but not remembering what it was called and if I'd ever be able to find it back home makes me consider what it means to only associate certain tastes with locations, people with places<br><br>
+                            To trudge around a city which feels unbounded as a result of your unfamiliarity makes the most lasting impressions, and I sometimes feel as though I give more credit than what's really due. I know I tend to weigh a city in my heart almost irrationally from memories of being lost in. Maybe that's not irrational
+                        </div>
+                            </div>
+                    <div class="col">
+                        <div>
+                            <img src="images/R1-00283-021A.JPG">
+                        </div>
+                        <div>
+                            <img src="images/R1-00283-018A.JPG">
+                        </div>
+                        <div>
+                            <img src="images/R1-00285-0008.JPG">
+                        </div>
+                    </div>
+            </div>
+            </div>
+            </div>
+    </body>
+</html>

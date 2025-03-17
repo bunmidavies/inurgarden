@@ -1,0 +1,227 @@
+@font-face {
+    font-family: PlayfairDisplay;
+    src: url(fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: Raleway;
+    src: url(fonts/Raleway/Raleway-VariableFont_wght.ttf);
+}
+
+@keyframes fadeInBody {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+body {
+    font-family: PlayfairDisplay;
+    background-color: #edf2fa;
+    animation: fadeInBody 0.85s;
+}
+
+.fadeOut {
+    opacity: 0;
+}
+
+html {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+html::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
+.fadeIn {
+    opacity: 1;
+}
+
+.page {
+    transition: all 0.5s;
+    opacity: 1;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    border-left: solid 1px black;
+    border-top: solid 1px black;
+    
+}
+
+#details {
+    display: flex;
+    background-image: url(images/R1-00285-0012.JPG);
+    width: 23rem;
+    background-size:contain;
+    color:black;
+}
+
+.container {
+    /* background-color: white; */
+    display:flex;
+    width: 85%;
+    margin-top: 2vh;
+}
+
+.container div img {
+    object-fit: contain;
+}
+
+.mainbar {
+    display: flex;
+    gap: 0.2rem;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    object-fit: contain;
+}
+
+.row {
+    margin: auto;
+    display: flex;
+    align-items: flex-end;
+    width: 80%;
+    flex-direction: row;
+}
+
+.row div {
+    width: 100%;
+    height: 30%;
+}
+
+.row div img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.col div img {
+    max-width: 100%;
+}
+
+.col div img {
+    object-fit: fill;
+}
+
+.colOther {
+    display: flex;
+    flex-direction: row;
+    object-fit: contain;
+}
+
+
+.colOther div img {
+    max-width: 100%;
+}
+
+#university {
+    background-image: url('images/20230703021459_000137.JPG');
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    background-size:cover;
+    width: 23rem;
+    height: 23rem;
+}
+
+.colOther div video {
+    max-width: 100%;
+}
+
+.colContainer div img {
+}
+
+
+.header {
+    width: 85%;
+    align-items: flex-end;
+    justify-content: flex-end;
+    /*width: 75%;*/
+    /*padding: 1.5rem;*/
+    /* border: solid 1px black; */
+    display:flex;
+    margin-top:2rem;
+    max-height: 13rem;
+}
+
+.sidebar {
+}
+
+#buttons {
+    height: 2rem;
+    width: 40%;
+    font-family: Raleway;
+}
+
+#buttons span {
+    padding: 4px;
+    border: solid 1px black;
+    width:100%;
+    text-align: center;
+}
+
+#buttons span:hover {
+    background-color:black;
+    color:white;
+}
+
+#buttons span:last-child {
+    border-left:none;
+}
+
+#buttons span:first-child {
+    border-right:none;
+}
+
+#titleFlex
+{
+    display:flex;
+    flex-direction: column;
+    gap: 0px;
+    justify-content: space-between;
+    
+}
+
+.colContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+#abouttrip {
+    background-color: white;
+    /* height: 25%; */
+    /* max-width: 100%; */
+    /* display: flex; */
+    /* align-items: flex-end; */
+    overflow-y: scroll;
+}
+
+.header img {
+    /*max-height: 100%;*/
+    height: 13rem;
+    width: auto;
+    object-fit: contain;
+}
+
+#title {
+    font-size:5rem;
+    line-height:3rem;
+    border: solid 1px black;
+}
+
+#details table {
+    background-color: white;
+    display: table;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#details table, th, td {
+    padding: 0.1rem;
+    background-color:white;
+    font-family: Raleway;
+    font-weight: 300;
+    border: 2px solid white;
+}
